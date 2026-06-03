@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: pulse-chat-socket
+    env: node
+    plan: starter
+    rootDir: apps/socket
+    buildCommand: pnpm install --frozen-lockfile && pnpm build
+    startCommand: pnpm start
+    autoDeploy: true
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 4001
+      - key: DATABASE_URL
+        sync: false
+      - key: SOCKET_JWT_SECRET
+        sync: false
+      - key: CORS_ORIGIN
+        sync: false

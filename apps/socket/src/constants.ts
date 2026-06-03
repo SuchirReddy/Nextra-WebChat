@@ -1,0 +1,22 @@
+export const SOCKET_EVENTS = {
+  CONNECTED: "socket:connected",
+  ERROR: "socket:error",
+  CHAT_JOIN: "chat:join",
+  CHAT_LEAVE: "chat:leave",
+  CHAT_MESSAGE_SEND: "chat:message:send",
+  CHAT_MESSAGE_NEW: "chat:message:new",
+  CHAT_MESSAGE_EDIT: "chat:message:edit",
+  CHAT_MESSAGE_DELETE: "chat:message:delete",
+  CHAT_TYPING_START: "chat:typing:start",
+  CHAT_TYPING_STOP: "chat:typing:stop",
+  CHAT_TYPING_STATE: "chat:typing:state",
+  CHAT_READ_RECEIPT: "chat:read:receipt",
+  CHAT_READ_UPDATE: "chat:read:update",
+  CHAT_READ_ALL: "chat:read:all",
+  CHAT_READ_ALL_UPDATE: "chat:read:all:update",
+  CHAT_MESSAGE_REACTION: "chat:message:reaction",
+  PRESENCE_UPDATE: "presence:update",
+  NOTIFICATION_NEW: "notification:new",
+  GROUP_INFO_UPDATE: "group:info:update",
+  CHAT_CLEARED: "chat:cleared"
+} as const;
