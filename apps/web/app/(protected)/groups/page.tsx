@@ -69,7 +69,7 @@ export default function GroupsPage() {
           memberUserIds: selectedMembers.map((m) => m.id)
         })
       }),
-    onSuccess: (data: any) => {
+    onSuccess: (data: { chatId?: string }) => {
       toast.success(`Group "${name.trim()}" created!`);
       queryClient.invalidateQueries({ queryKey: ["chats"] });
       // Navigate to the new group chat if chatId is available
@@ -192,7 +192,7 @@ export default function GroupsPage() {
             <div className="rounded-lg border border-border divide-y divide-border max-h-60 overflow-y-auto">
               {searchResults.length === 0 && !isFetching ? (
                 <div className="px-4 py-6 text-center text-sm text-muted-foreground">
-                  No users found for "{debouncedSearch}"
+                  No users found for &quot;{debouncedSearch}&quot;
                 </div>
               ) : (
                 searchResults.map((user) => {

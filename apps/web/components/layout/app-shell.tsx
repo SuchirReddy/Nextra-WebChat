@@ -1,6 +1,6 @@
 "use client";
 
-export const AppShell = ({ children, unreadCount = 0 }: { children: React.ReactNode; unreadCount?: number }) => {
+export const AppShell = ({ children }: { children: React.ReactNode }) => {
   return (
     <div className="h-screen w-full overflow-hidden bg-[var(--clay-bg-app)]">
       {/* WhatsApp web usually has a green background strip at the top, but for full screen we just render the dual pane */}

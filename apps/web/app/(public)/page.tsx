@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { auth } from "@clerk/nextjs/server";
-import { ArrowRight, MessageSquareHeart, Shield, Zap, Globe, FileImage, MessageCircle, Users } from "lucide-react";
+import { ArrowRight, Shield, Zap, Globe, FileImage, MessageCircle, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const starPositions = [

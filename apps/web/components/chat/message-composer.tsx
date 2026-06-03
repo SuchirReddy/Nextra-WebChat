@@ -1,9 +1,9 @@
 "use client";
 
-import { Paperclip, Send, Smile, Plus, Mic } from "lucide-react";
+import { Send, Smile, Plus, Mic } from "lucide-react";
 import { ChangeEvent, DragEvent, useMemo, useState } from "react";
 import { toast } from "sonner";
-import { Button } from "@/components/ui/button";
+
 import { Input } from "@/components/ui/input";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import EmojiPicker, { EmojiClickData } from "emoji-picker-react";

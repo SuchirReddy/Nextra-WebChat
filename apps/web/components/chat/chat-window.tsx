@@ -41,7 +41,7 @@ export const ChatWindow = ({ chatId }: { chatId: string }) => {
   const chats = useChatStore((state) => state.chats);
   const activeChat = chats.find(c => c.id === chatId);
 
-  const messages = useChatStore((state) => state.messagesByChat[chatId]) ?? [];
+  const messagesFromStore = useChatStore((state) => state.messagesByChat[chatId]);
   const typingUsers = useChatStore((state) => state.typingByChat[chatId]) ?? [];
   const appendMessage = useChatStore((state) => state.appendMessage);
   const clearUnread = useChatStore((state) => state.clearUnread);
@@ -64,10 +64,10 @@ export const ChatWindow = ({ chatId }: { chatId: string }) => {
     onError: () => toast.error("Failed to clear chat")
   });
 
-  const sortedMessages = useMemo(
-    () => [...messages].sort((a, b) => new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime()),
-    [messages]
-  );
+  const sortedMessages = useMemo(() => {
+    const messages = messagesFromStore ?? [];
+    return [...messages].sort((a, b) => new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime());
+  }, [messagesFromStore]);
 
   // Socket room joining is now handled centrally by useSocket
 
@@ -193,7 +193,7 @@ export const ChatWindow = ({ chatId }: { chatId: string }) => {
               const sent = await sendMessage.mutateAsync(payload);
               useChatStore.getState().updateMessage(chatId, tempId, () => sent);
               getExistingSocket()?.emit(SOCKET_EVENTS.CHAT_MESSAGE_SEND, sent);
-            } catch (err) {
+            } catch {
               // Revert optimistic update on error
               useChatStore.setState((state) => ({
                 messagesByChat: {

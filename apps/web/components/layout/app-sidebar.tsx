@@ -18,7 +18,7 @@ const items = [
   { href: "/admin", label: "Admin", icon: Shield }
 ];
 
-export const AppSidebar = ({ unread = 0 }: { unread?: number }) => {
+export const AppSidebar = () => {
   const pathname = usePathname();
   const { data, markAsRead } = useNotifications();
   const notificationCount = data?.unreadCount ?? 0;

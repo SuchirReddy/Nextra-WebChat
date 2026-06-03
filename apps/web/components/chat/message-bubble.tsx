@@ -49,7 +49,7 @@ export const MessageBubble = ({ message, own, currentUserId }: { message: ChatMe
 
   const handleDelete = async () => {
     try {
-      const deletedMsg = await apiClient<ChatMessage>(`/api/messages/${message.id}`, { method: "DELETE" });
+      await apiClient<ChatMessage>(`/api/messages/${message.id}`, { method: "DELETE" });
       getExistingSocket()?.emit(SOCKET_EVENTS.CHAT_MESSAGE_DELETE, { chatId: message.chatId, messageId: message.id });
     } catch (error) {
       console.error("Failed to delete message", error);
