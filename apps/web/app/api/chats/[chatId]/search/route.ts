@@ -5,7 +5,8 @@ import { rateLimit } from "@/lib/rate-limit";
 import { requestIp } from "@/lib/request";
 import { chatRepo } from "@/server/repos/chat-repo";
 
-export async function GET(req: NextRequest, { params }: { params: { chatId: string } }) {
+export async function GET(req: NextRequest, props: { params: Promise<{ chatId: string }> }) {
+  const params = await props.params;
   try {
     if (!rateLimit(`search_chat_messages:${requestIp(req)}`, 30, 60_000)) {
       return fail("Too many requests", 429);

@@ -61,7 +61,7 @@ export default function GroupsPage() {
 
   const createGroup = useMutation({
     mutationFn: () =>
-      apiClient("/api/groups", {
+      apiClient<{ chatId?: string }>("/api/groups", {
         method: "POST",
         body: JSON.stringify({
           name: name.trim(),
