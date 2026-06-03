@@ -17,14 +17,5 @@
     "db:migrate": "pnpm --filter web db:migrate",
     "db:studio": "pnpm --filter web db:studio",
     "db:seed": "pnpm --filter web db:seed"
-  },
-  "pnpm": {
-    "onlyBuiltDependencies": [
-      "@clerk/shared",
-      "esbuild",
-      "msgpackr-extract",
-      "sharp",
-      "unrs-resolver"
-    ]
   }
 }

@@ -1,2 +1,10 @@
 packages:
   - apps/*
+
+settings:
+  onlyBuiltDependencies:
+    - "@clerk/shared"
+    - "esbuild"
+    - "msgpackr-extract"
+    - "sharp"
+    - "unrs-resolver"
