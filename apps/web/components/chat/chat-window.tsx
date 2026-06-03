@@ -91,7 +91,7 @@ export const ChatWindow = ({ chatId }: { chatId: string }) => {
           <Avatar className="h-10 w-10 bg-muted/50">
             <AvatarImage src={activeChat?.avatarUrl || undefined} alt={activeChat?.title} />
             <AvatarFallback>
-              {(activeChat?.type === "group" || chatInfo?.type === "group") ? <Users className="h-5 w-5 text-muted-foreground" /> : (activeChat?.title ?? (chatInfo?.type === "group" ? chatInfo.group.name : chatInfo?.type === "direct" ? chatInfo.contact.username : "CH"))?.slice(0, 2).toUpperCase()}
+              {(activeChat?.type === "group" || chatInfo?.type === "group") ? <Users className="h-5 w-5 text-muted-foreground" /> : (activeChat?.title ?? (chatInfo?.type === "direct" ? chatInfo.contact.username : "CH"))?.slice(0, 2).toUpperCase()}
             </AvatarFallback>
           </Avatar>
           <div className="flex flex-col">
